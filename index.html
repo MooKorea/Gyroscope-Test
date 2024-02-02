@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="x"></div>
+    <div class="y"></div>
+    <div class="z"></div>
+
     <script>
-        
+      let gyroscope = new Gyroscope({ frequency: 60 });
+
+        const x = document.querySelector(".x");
+        const y = document.querySelector(".y");
+        const z = document.querySelector(".z");
+
+      gyroscope.addEventListener("reading", (e) => {
+        x.innerHTML = gyroscope.x;
+        y.innerHTML = gyroscope.y;
+        z.innerHTML = gyroscope.z;
+      });
+      gyroscope.start();
     </script>
-</body>
+  </body>
 </html>
